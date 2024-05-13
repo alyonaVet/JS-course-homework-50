@@ -25,9 +25,28 @@
         );
     };
 
+    const SideBar = (props) => {
+        const { links } = props;
+
+        return (
+            <div className="sidebar">
+                {links.map((link) => (
+                    <a href={link.url} className={link.active ? "active" : ""}>{link.text}</a>
+                ))}
+            </div>
+        );
+    };
+    const links = [
+        { text: "Главнвя страница", url: "#", active: true },
+        { text: "О нас", url: "#" },
+        { text: "Каталог", url: "#" },
+        { text: "Контакты", url: "#" }
+    ];
+
     const page = (
         <div>
-        <Header name="Behoof" img="images/logo.svg" text="Лучшие цены в интернет-магазинах" link="Профиль"/>
+            <SideBar links={links}/>
+            <Header name="Behoof" img="images/logo.svg" text="Лучшие цены в интернет-магазинах" link="Профиль"/>
         </div>
     );
     ReactDOM.render(page, document.getElementById('app'));
