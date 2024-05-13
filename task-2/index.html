@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app"></div>
+
+
+<script type="text/babel">
+    const Header = (props) => {
+        return (
+            <header className="header">
+                <div className="container header_logo">
+                    <a href="#" className="logo"><img src={props.img} alt={'Logo of ' + props.name}/></a>
+                    <span className="header_text">{props.text}</span>
+                    <a href="#" className="profile_link">{props.link}</a>
+                </div>
+            </header>
+        );
+    };
+
+    const page = (
+        <div>
+        <Header name="Behoof" img="images/logo.svg" text="Лучшие цены в интернет-магазинах" link="Профиль"/>
+        </div>
+    );
+    ReactDOM.render(page, document.getElementById('app'));
+
+
+</script>
+
+</body>
+</html>
