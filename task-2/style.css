@@ -100,3 +100,16 @@ body {
     line-height: 1.2;
     margin-top: auto;
 }
+
+.text_block {
+    margin-top: 40px;
+}
+
+.text_title {
+    font-size: 32px;
+    color: #FF4D4D;
+}
+
+.text_content {
+    font-size: 24px;
+}

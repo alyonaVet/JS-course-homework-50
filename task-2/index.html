@@ -26,34 +26,44 @@
     };
 
     const SideBar = (props) => {
-        const { links } = props;
-
+        const {links} = props;
+        const linksList =  links.map((link, index) => (
+                    <a
+                        key={index}
+                        href={link.url}
+                        className={link.active ? "active" : ""}>
+                        {link.text}</a>
+                ))
         return (
-            <div className="sidebar">
-                {links.map((link) => (
-                    <a href={link.url} className={link.active ? "active" : ""}>{link.text}</a>
-                ))}
+            <div className="sidebar">{linksList}</div>
+        )
+    };
+
+    const Goods = (props) => {
+        const {goods} = props;
+        const goodsList = goods.map((good, index) => (
+            <div key={index} className="card">
+                <div className="card_img">
+                    <img src={good.img} alt={good.name}/>
+                </div>
+                <p className="card_text">{good.name}</p>
+            </div>
+        ))
+        return (
+            <div className="container goods_container">
+                <h1 className="categories_text">Лучший выбор в {props.name}</h1>
+                <div className="categories_cards">{goodsList}</div>
             </div>
         );
     };
 
-    const Goods = (props) => {
-        const { goods } = props;
+    const TextBlock = (props) => {
         return (
-            <div className="container goods_container">
-                <h1 className="categories_text">Лучший выбор в {props.name}</h1>
-                <div className="categories_cards">
-                    {goods.map((good) => (
-                        <div className="card">
-                            <div className="card_img">
-                                <img src={good.img} alt={good.name}/>
-                            </div>
-                            <p className="card_text">{good.name}</p>
-                        </div>
-                    ))}
-                </div>
+            <div className="container text_block">
+                <h2 className="text_title">{props.title}</h2>
+                <p className="text_content">{props.text}</p>
             </div>
-        );
+        )
     };
 
     const sideBarLinks = [
@@ -72,16 +82,16 @@
         {name: "Умные часы", img: "https://obnovis.kg/image/cache/catalog/mishop/1/umnye_chasy_Xiaomi_Amazfit_BIP_U_A2017_v_bishkeke_kupit_tsena_foto-1000x1000.jpg"},
     ];
 
-
     const page = (
         <div>
             <SideBar links={sideBarLinks}/>
             <Header name="Behoof" img="images/logo.svg" text="Лучшие цены в интернет-магазинах" profile="Профиль"/>
             <Goods name="Behoof" goods={goods}/>
+            <TextBlock title="Наша цель - создать фантастический сервис для всех потребителей"
+                       text="Lorem ipsum dolor sit amet consectetur. Rhoncus risus nunc a pharetra viverra enim nunc. Sed varius ut venenatis id amet et consectetur pellentesque. Vitae urna ornare vel suspendisse tincidunt."/>
         </div>
     );
     ReactDOM.render(page, document.getElementById('app'));
-
 
 </script>
 
