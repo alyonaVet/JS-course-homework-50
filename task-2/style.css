@@ -7,7 +7,7 @@ body {
 .container {
     max-width: 1300px;
     margin-left: 200px;
-    padding: 1px 16px;
+    padding: 10px 30px;
 }
 
 .header {
@@ -85,6 +85,8 @@ body {
     border-radius: 15px;
     padding: 5px 10px;
     margin: 30px 20px;
+    text-decoration: none;
+    color: inherit;
 }
 
 .card img {
@@ -103,6 +105,7 @@ body {
 
 .text_block {
     margin-top: 40px;
+    margin-bottom: 100px;
 }
 
 .text_title {
@@ -112,4 +115,12 @@ body {
 
 .text_content {
     font-size: 24px;
+}
+
+.footer_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: solid #F2F5F9 3px;
+    padding: 20px 0;
 }

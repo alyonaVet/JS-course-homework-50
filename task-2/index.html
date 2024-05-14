@@ -27,13 +27,13 @@
 
     const SideBar = (props) => {
         const {links} = props;
-        const linksList =  links.map((link, index) => (
-                    <a
-                        key={index}
-                        href={link.url}
-                        className={link.active ? "active" : ""}>
-                        {link.text}</a>
-                ))
+        const linksList = links.map((link, index) => (
+            <a
+                key={index}
+                href={link.url}
+                className={link.active ? "active" : ""}>
+                {link.text}</a>
+        ))
         return (
             <div className="sidebar">{linksList}</div>
         )
@@ -42,12 +42,12 @@
     const Goods = (props) => {
         const {goods} = props;
         const goodsList = goods.map((good, index) => (
-            <div key={index} className="card">
+            <a key={index} className="card" href={good.url}>
                 <div className="card_img">
                     <img src={good.img} alt={good.name}/>
                 </div>
                 <p className="card_text">{good.name}</p>
-            </div>
+            </a>
         ))
         return (
             <div className="container goods_container">
@@ -63,7 +63,19 @@
                 <h2 className="text_title">{props.title}</h2>
                 <p className="text_content">{props.text}</p>
             </div>
-        )
+        );
+    };
+
+    const Footer = (props) => {
+        return (
+            <footer className="container">
+                <div className="footer_container">
+                    <a href="#"><img src={props.img} alt={'Logo of ' + props.name}/></a>
+                    <div>Copyright © 2023 {props.name}, Inc. Все права защищены.</div>
+                </div>
+
+            </footer>
+        );
     };
 
     const sideBarLinks = [
@@ -74,12 +86,14 @@
     ];
 
     const goods = [
-        {name: "Смартфоны", img: "https://object.pscloud.io/cms/cms/Photo/img_0_77_4475_0_6.png"},
-        {name: "Ноутбуки", img: "https://i.moyo.ua/img/smart_filters/pp_y_f3Og_image_1694526995.jpg"},
-        {name: "Планшеты", img: "https://object.pscloud.io/cms/cms/Photo/img_0_77_2036_0.jpg"},
-        {name: "Игровые приставки", img: "https://www.kivano.kg/images/product/102584/full/1642485388_80248100.jpg"},
-        {name: "Наушники", img: "https://www.myphone.kg/files/media/12/12772.png"},
-        {name: "Умные часы", img: "https://obnovis.kg/image/cache/catalog/mishop/1/umnye_chasy_Xiaomi_Amazfit_BIP_U_A2017_v_bishkeke_kupit_tsena_foto-1000x1000.jpg"},
+        {name: "Смартфоны", img: "https://object.pscloud.io/cms/cms/Photo/img_0_77_4475_0_6.png", url: "#"},
+        {name: "Ноутбуки", img: "https://i.moyo.ua/img/smart_filters/pp_y_f3Og_image_1694526995.jpg", url: "#"},
+        {name: "Планшеты", img: "https://object.pscloud.io/cms/cms/Photo/img_0_77_2036_0.jpg", url: "#"},
+        {name: "Игровые приставки", img: "https://www.kivano.kg/images/product/102584/full/1642485388_80248100.jpg", url: "#"},
+        {name: "Наушники", img: "https://www.myphone.kg/files/media/12/12772.png", url: "#"},
+        {
+            name: "Умные часы",
+            img: "https://obnovis.kg/image/cache/catalog/mishop/1/umnye_chasy_Xiaomi_Amazfit_BIP_U_A2017_v_bishkeke_kupit_tsena_foto-1000x1000.jpg", url: "#"},
     ];
 
     const page = (
@@ -89,6 +103,7 @@
             <Goods name="Behoof" goods={goods}/>
             <TextBlock title="Наша цель - создать фантастический сервис для всех потребителей"
                        text="Lorem ipsum dolor sit amet consectetur. Rhoncus risus nunc a pharetra viverra enim nunc. Sed varius ut venenatis id amet et consectetur pellentesque. Vitae urna ornare vel suspendisse tincidunt."/>
+            <Footer name="Behoof" img="images/logo.svg"/>
         </div>
     );
     ReactDOM.render(page, document.getElementById('app'));
