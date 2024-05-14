@@ -70,6 +70,10 @@ body {
     margin-top: 30px;
 }
 
+.categories_text {
+    font-size: 32px;
+}
+
 .categories_cards {
     display: flex;
     flex-wrap: wrap;

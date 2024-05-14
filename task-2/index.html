@@ -11,7 +11,6 @@
 <body>
 <div id="app"></div>
 
-
 <script type="text/babel">
     const Header = (props) => {
         return (
@@ -36,22 +35,22 @@
         ))
         return (
             <div className="sidebar">{linksList}</div>
-        )
+        );
     };
 
     const Goods = (props) => {
         const {goods} = props;
         const goodsList = goods.map((good, index) => (
             <a key={index} className="card" href={good.url}>
-                <div className="card_img">
+                <div>
                     <img src={good.img} alt={good.name}/>
                 </div>
                 <p className="card_text">{good.name}</p>
             </a>
-        ))
+        ));
         return (
             <div className="container goods_container">
-                <h1 className="categories_text">Лучший выбор в {props.name}</h1>
+                <h2 className="categories_text">Лучший выбор в {props.name}</h2>
                 <div className="categories_cards">{goodsList}</div>
             </div>
         );
@@ -70,10 +69,9 @@
         return (
             <footer className="container">
                 <div className="footer_container">
-                    <a href="#"><img src={props.img} alt={'Logo of ' + props.name}/></a>
+                    <a href="#" className="logo"><img src={props.img} alt={'Logo of ' + props.name}/></a>
                     <div>Copyright © 2023 {props.name}, Inc. Все права защищены.</div>
                 </div>
-
             </footer>
         );
     };
@@ -91,9 +89,7 @@
         {name: "Планшеты", img: "https://object.pscloud.io/cms/cms/Photo/img_0_77_2036_0.jpg", url: "#"},
         {name: "Игровые приставки", img: "https://www.kivano.kg/images/product/102584/full/1642485388_80248100.jpg", url: "#"},
         {name: "Наушники", img: "https://www.myphone.kg/files/media/12/12772.png", url: "#"},
-        {
-            name: "Умные часы",
-            img: "https://obnovis.kg/image/cache/catalog/mishop/1/umnye_chasy_Xiaomi_Amazfit_BIP_U_A2017_v_bishkeke_kupit_tsena_foto-1000x1000.jpg", url: "#"},
+        {name: "Умные часы", img: "https://obnovis.kg/image/cache/catalog/mishop/1/umnye_chasy_Xiaomi_Amazfit_BIP_U_A2017_v_bishkeke_kupit_tsena_foto-1000x1000.jpg", url: "#"},
     ];
 
     const page = (
